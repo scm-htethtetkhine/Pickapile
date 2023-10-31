@@ -1,0 +1,28 @@
+<div class="display_page">
+  <div class="container">
+    <div  class="display-card">
+      <ng-container *ngFor="let que of questionData">
+        <ng-container *ngIf="que.QuestionId == pilecard_id">   
+          <h2 class="title">{{que.QuestionName}}</h2>  
+          <p class="description">{{que.QuestionDesp}}</p>
+        </ng-container>
+      </ng-container>
+      
+      <div class="column">
+        <ng-container *ngFor="let ans of answerData">
+          <a *ngIf="ans.QuestionId == pilecard_answer" routerLink="/detailcard/{{ans.AnswerId}}">
+            <div *ngIf="ans.QuestionId == pilecard_id">
+              <img src="assets/{{ans.AnswerImageUrl}}" alt="" class="imgsize">
+              <p class="pilename">{{ans.AnswerName}}</p>
+            </div>
+          </a>
+          
+        </ng-container>
+      </div>
+      <a class="hometext" routerLink="">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+        Home
+      </a>
+    </div>
+  </div>
+</div>

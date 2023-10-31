@@ -1,0 +1,40 @@
+<div class="home_page">
+  <div class="container">
+    <div  class="column">
+      <mat-card *ngFor="let que of questionData" class="choosing-card">
+        <div *ngFor="let ans of answerData">
+          <div *ngIf="que.QuestionId == ans.QuestionId">
+            <a routerLink="/displaycard/{{que.QuestionId}}" >
+              <div class="imgsize">
+                <img mat-card-image *ngIf="ans.AnswerName == 'Pile-1 '"  src="assets/{{ans.AnswerImageUrl}}" alt="">
+              </div> 
+            </a>
+          </div>
+        </div>
+        
+        <mat-card-content>
+          <h2 class="title">{{que.QuestionName}}</h2>
+          <p class="textshow" [ngClass]="{'limitTextHeight': isReadMore}">{{que.QuestionDesp}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="button-readmore" mat-button (click)="showText()"> {{ isReadMore ? 'Read More': 'Read Less' }}</button>
+        </mat-card-actions>
+      </mat-card> 
+    </div>
+    <mat-paginator 
+    (page)="handlePageEvent($event)"
+    [length]="totalCount"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[3, 6 , 9 , 12 , 15]"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+    class="paginator">
+  </mat-paginator>
+</div>
+</div>
+
+
+
+
+
+
