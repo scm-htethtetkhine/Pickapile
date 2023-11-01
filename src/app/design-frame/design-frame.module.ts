@@ -8,6 +8,7 @@ import { DisplayCardComponent } from './display_card/display-card/display-card.c
 import { AppRoutingModule } from '../app-routing.module';
 import { DetailCardComponent } from './detail_card/detail-card/detail-card.component';
 import {MatIconModule} from '@angular/material/icon';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatPaginatorModule,
     AppRoutingModule,
-    MatIconModule
+    MatIconModule,
+    NgxPaginationModule
   ],
   exports: [
     HomeComponent,

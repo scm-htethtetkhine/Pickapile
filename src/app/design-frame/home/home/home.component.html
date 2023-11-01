@@ -1,7 +1,7 @@
 <div class="home_page">
   <div class="container">
     <div  class="column">
-      <mat-card *ngFor="let que of questionData" class="choosing-card">
+  <mat-card *ngFor="let que of questionData | paginate:{itemsPerPage: pageSize, currentPage:currentPageNumber}" class="choosing-card">
         <div *ngFor="let ans of answerData">
           <div *ngIf="que.QuestionId == ans.QuestionId">
             <a routerLink="/displaycard/{{que.QuestionId}}" >
@@ -21,15 +21,10 @@
         </mat-card-actions>
       </mat-card> 
     </div>
-    <mat-paginator 
-    (page)="handlePageEvent($event)"
-    [length]="totalCount"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[3, 6 , 9 , 12 , 15]"
-    [pageIndex]="pageIndex"
-    aria-label="Select page"
-    class="paginator">
-  </mat-paginator>
+
+  <div class="pagination">
+    <pagination-controls (pageChange)="currentPageNumber=$event"></pagination-controls>
+  </div>    
 </div>
 </div>
 
