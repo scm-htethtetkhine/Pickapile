@@ -1,22 +1,12 @@
+var jsonServer = require('json-server')
+var server = jsonServer.create()
 
-const jsonServer = require('json-server/PickAPile.json')
+server.use(jsonServer.defaults)
 
-const server = jsonServer.create()
-
-const router = jsonServer.router('json-server/PickAPile.json')
-
-const middlewares = jsonServer.defaults()
-
-server.use(middlewares)
-// Add this before server.use(router)
-server.use(jsonServer.rewriter({
-    '/api/*': '/$1',
-    '/blog/:resource/:id/show': '/:resource/:id'
-}))
-server.use(router)
-server.listen(3000, () => {
-    console.log('JSON Server is running')
+server.post('login', function (req, res) {
+  res.sendStatus(404)
 })
 
-// Export the Server API
-module.exports = server
+server.use(jsonServer.router('PickAPile.json'))
+
+server.listen(3000)
