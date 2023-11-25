@@ -241,6 +241,11 @@ a {
 }
 
 @media (max-width: 767px) {
+
+  .home_page .container {
+    padding: 60px 35px;
+  }
+
   .home_page .column {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -263,15 +268,19 @@ a {
   /* Display Page */
   
   .display_page .column {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   
   .display_page .imgsize {
-    height: 250px;
+    height: 297px;
   }
   
   .display_page .title {
     line-height: 2;
+  }
+
+  .display_page .hometext {
+    margin: 25px auto 0;
   }
   
   /* Detail Page */
@@ -279,4 +288,5 @@ a {
   .detail-card {
     grid-template-columns: 1fr;
   }
+  
 }
