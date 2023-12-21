@@ -1,7 +1,11 @@
 <div class="home_page">
+  <header>
+    <img src="assets/images/header_logo.png" alt="">
+    <p>Astrology</p>
+  </header>
   <div class="container">
     <div  class="column">
-  <mat-card *ngFor="let que of questionData | paginate:{itemsPerPage: pageSize, currentPage:currentPageNumber}" class="choosing-card">
+      <mat-card *ngFor="let que of questionData | paginate:{itemsPerPage: pageSize, currentPage:currentPageNumber}" class="choosing-card">
         <div *ngFor="let ans of answerData">
           <div *ngIf="que.QuestionId == ans.QuestionId">
             <a routerLink="/displaycard/{{que.QuestionId}}" >
@@ -17,15 +21,18 @@
           <p class="textshow" [ngClass]="{'limitTextHeight': isReadMore}">{{que.QuestionDesp}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button class="button-readmore" mat-button (click)="showText()"> {{ isReadMore ? 'Read More': 'Read Less' }}</button>
+          <button routerLink="/displaycard/{{que.QuestionId}}" class="button-readmore" mat-button (click)="showText()"> {{ isReadMore ? 'Read More': 'Read Less' }}</button>
         </mat-card-actions>
       </mat-card> 
     </div>
-
-  <div class="pagination">
-    <pagination-controls (pageChange)="currentPageNumber=$event"></pagination-controls>
-  </div>    
-</div>
+    
+    <div class="pagination">
+      <pagination-controls (pageChange)="currentPageNumber=$event"></pagination-controls>
+    </div>    
+  </div>
+  <footer>
+    <p>Designed by Htet</p>
+  </footer>
 </div>
 
 

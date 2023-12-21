@@ -22,16 +22,47 @@ a {
   src: url('../../../../assets/fonts/FugazOne-Regular.ttf'); 
 }
 
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../../../../assets/fonts/exofont.woff2') format('woff2');
+}
+
+/* header */
+
+header {
+  display: flex;
+  background: #0AFFFF;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+header img {
+  width: 50px;
+}
+
+header p {
+  padding-left: 12px;
+  font-size: 25px;
+  font-style: oblique;
+  color: #000080;
+  margin-bottom: 0!important;
+  text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #4848A4, -2px 3px #8da1ff;
+  font-family: "Henny Penny", cursive;
+}
+
 .home_page .container {
   padding: 68px 50px;
-  background: url("../../../../assets/images/tarot_bg.jpeg")no-repeat center center;
+  background: url("../../../../assets/images/tarot_bg.jpg")no-repeat center center;
   background-size: cover;
   
 }
 
 .home_page .title {
-  color: #4682B4;
-  font-weight: 500;
+  color: #000080;
+  font-weight: 700;
 }
 
 .home_page .column {
@@ -74,6 +105,7 @@ a {
   background: #7FFFD4;
   border-radius: 5px;
   margin-top: 40px;
+  border: 2px solid #FF7FF6;
 }
 
 .ngx-pagination { 
@@ -87,9 +119,11 @@ a {
   cursor: pointer;
   padding: 21px 10px;
   font-family: "JetBrains Mono",monospace;
-  width: 40%;
+  width: 160px;
   margin: 15px auto 0;
   font-size: 18px;
+  color: #DE16CD!important;
+  font-weight: 700;
 }
 
 .home_page .button-readmore:focus {
@@ -143,6 +177,7 @@ a {
   line-height: 2;
   font-size: 18px;
   color: #2660a4;
+  font-weight: 600;
 }
 
 .display_page .imgsize {
@@ -240,7 +275,33 @@ a {
   text-decoration: underline;
 }
 
+/* pagination */
+
+.ngx-pagination .disabled {
+  color: #1034A6!important;
+  font-weight: bold;
+}
+
+/* footer */
+
+footer p {
+  text-align: center;
+  font-family: "Exo 2", sans-serif;
+  color: #021691;
+  background: #0AFFFF;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+  padding: 20px 0;
+  text-shadow: 3px 1px 1px #99F443, 2px 2px 1px #FEE715, 4px 2px 1px #E2D1F9, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb, 7px 5px 1px #4af7ff;
+}
+
 @media (max-width: 767px) {
+  .home_page .container {
+    padding: 68px 30px;
+  }
+  
   .home_page .column {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -254,7 +315,7 @@ a {
     width: 100%;
     padding: 8px 0 16px;
   }
-
+  
   .home_page .pagination {
     width: 100%;
     font-size: 10px;
@@ -263,11 +324,7 @@ a {
   /* Display Page */
   
   .display_page .column {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .display_page .imgsize {
-    height: 250px;
+    grid-template-columns: repeat(1, 1fr);
   }
   
   .display_page .title {
